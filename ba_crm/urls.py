@@ -11,8 +11,13 @@ urlpatterns = [
     path('', LandingPageView.as_view(), name="landing-page"),
     path('leads/', include('leads.urls', namespace="leads")),
     path('agents/', include('agents.urls', namespace="agents")),
-    path('login/', LoginView.as_view(), name="login"),
+
+
     path('signup/', SignupView.as_view(), name="signup"),
+    path('login/', LoginView.as_view(), name="login"),
+    path('logout/', LogoutView.as_view(), name="logout"),
+
+
     path('reset-password/', PasswordResetView.as_view(), name="reset-password"),
     path('reset-password-done/', PasswordResetDoneView.as_view(),
          name="password_reset_done"),
@@ -20,7 +25,7 @@ urlpatterns = [
          name="password_reset_complete"),
     path('password-reset-confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
-    path('logout/', LogoutView.as_view(), name="logout"),
+
 ]
 
 if settings.DEBUG:
